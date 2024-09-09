@@ -1,0 +1,19 @@
+# rust_dev
+
+## Cборка и публикация в dockerhub
+```bash
+docker build -t metaller000/rust_ubuntu_dev .
+```
+
+## Подготовка среды и запуск
+###
+```bash
+docker pull metaller000/rust_ubuntu_dev
+```
+
+### Запуск
+```bash
+docker run -d --network host -v $(pwd):/app  metaller000/rust_ubuntu_dev
+# пройти по ссылке http://localhost:666/
+```
+
