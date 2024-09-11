@@ -1,0 +1,17 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --build_arg UBUNTU_VER=20.04 --tag metaller000/rust_serv_ubuntu:20.04-dev
+      run: docker build . --file Dockerfile --build_arg UBUNTU_VER=22.04 --tag metaller000/rust_serv_ubuntu:22.04-dev
+      run: docker build . --file Dockerfile --build_arg UBUNTU_VER=24.04 --tag metaller000/rust_serv_ubuntu:24.04-dev
